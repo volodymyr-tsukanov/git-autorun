@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Variables
-welcomeText="Git autorun"
+welcomeText="Git Autorun"
 
 TAB_SIZE=4
 ROWS=64
@@ -44,12 +44,12 @@ printTab(){
 }
 
 welcomePrint(){
-	local width=$((COLS / 3));
-	local height=$((ROWS / 3));
-	local h_center=$((ROWS / 3));
-	local v_center=$((COLS / 3));
+	local width=$((COLS / 2));
+	local height=$((ROWS / 2));
+	local h_center=$((ROWS + 8));
+	local v_center=$((COLS + 8));
 	
-	local h2=$((height / 2))
+	local h3=$((height / 3))
 	local r=0;
 	local c=$((h_center - 1));
 	local s=0;
@@ -61,30 +61,38 @@ welcomePrint(){
 	printTab $h_center;
 	echo $headText;
 	while [ $r -lt $height ]; do
-		if [ $r -lt $v_center ]; then
+		if [ $r -lt $h3 ]; then
 			printTab $c;
 			printf "%s" $leftText;
 			printTab $s;
-			printf "%s lt\n" $rightText;
+			printf "%s\n" $rightText;
 			
 			s=$((s + 2));
-			
 			c=$((c - 1));
-		elif [ $r -eq $h2 ]; then
+		elif [ $r -eq $h3 ]; then
+			c=$((c + 1));
+			# s=$((s + 1));
 			printTab $c;
-			printf "|---|";
-			printTab $((width - 11));
-			printf "%s" $welcomeText;
-			printTab $((width - 11));
-			printf "|---| \n";
-		elif [ $r -gt $h2 ]; then
+			printf "|--|";
+			local textLng=${#welcomeText};
+			local diff=$((s - textLng));
+			if [ $diff -gt 0 ]; then
+				local diff2=$((diff / 2));
+				printTab $diff2;
+				printf "%s" $welcomeText;
+				printTab $((diff - diff2));
+			else
+				printf "%s" ${welcomeText:0:s};
+			fi
+			printf "|--|\n";
+			s=$((s - 2));
+		else
 			printTab $c;
 			printf "%s" $rightText;
-			printTab $r;
-			printf "%s rt\n" $leftText;
+			printTab $s;
+			printf "%s\n" $leftText;
 			
 			s=$((s - 2));
-			
 			c=$((c + 1));
 		fi
 		
