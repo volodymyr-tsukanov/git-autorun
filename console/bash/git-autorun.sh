@@ -42,15 +42,21 @@ printTab(){
 }
 
 welcomePrint(){
-	local welcomeText=("****^****" "***/=\\***" "**=====**" "*-------*" "---------" "*_______*" "***Git***" "*autorun*" "---------" "/***|***\\");
-	local tabLng=$((TAB_SIZE/2))
+	local welcomeText=("    ^    " "   /=\\   " "  =====  " " ------- " "---------" " _______ " "   Git   " " autorun " "---------" "/ * | * \\");
+	local tabLng=$((COLS/2))
+	tabLng=$((tabLng - 8))
 	
 	for element in "${welcomeText[@]}"; do
-		printTab $tabLng "*"
-		printf "%s" $element
-		printTab $tabLng "*"
-		echo $element
+		printTab $tabLng
+		echo "${element}"
 	done
+	
+	infoPrint
+}
+infoPrint(){
+	printf "\n\nGit autorun:\n"
+	printTab $((TAB_SIZE / 2))
+	echo "version: " $VERSION
 }
 
 
