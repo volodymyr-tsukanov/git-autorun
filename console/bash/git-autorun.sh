@@ -1,6 +1,8 @@
 #!/bin/bash
 
 # Variables
+SAVE_PATH=".gasf"
+SAVE_SEPARATOR=";"
 TAB_SIZE=4
 ROWS=64
 COLS=64
@@ -21,6 +23,21 @@ awake(){
 run(){
 	initialize
 	awake
+	
+	save
+	load
+}
+
+
+save(){
+	echo "$VERSION" > "$SAVE_PATH"
+}
+load(){
+	local line=""
+	IFS="$SAVE_SEPARATOR" read -r -a lines < "$SAVE_PATH"
+	for line in "${lines[@]}"; do
+		echo "Field: $line"
+	done
 }
 
 
@@ -50,8 +67,6 @@ welcomePrint(){
 		printTab $tabLng
 		echo "${element}"
 	done
-	
-	infoPrint
 }
 infoPrint(){
 	printf "\n\nGit autorun:\n"
