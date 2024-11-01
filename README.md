@@ -1,10 +1,10 @@
 # git-autorun
-Git automation</br></br>
+Git automation </br></br>
 
 
-Shield: [![CC BY-NC 4.0][cc-by-nc-shield]][cc-by-nc]
+Shields: [![MIT License][mit-shield]][mit]
 
-[cc-by-nc]: http://creativecommons.org/licenses/by-nc/4.0/
-[cc-by-nc-shield]: https://img.shields.io/badge/License-CC%20BY--NC%204.0-lightgrey.svg
+[mit]: https://opensource.org/licenses/MIT
+[mit-shield]: https://img.shields.io/badge/License-MIT-lightgrey.svg
 
-<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.
+<a rel="license" href="https://opensource.org/licenses/MIT"><img alt="MIT License" height=47px style="border-width:0" src="https://i0.wp.com/opensource.org/wp-content/uploads/2023/03/cropped-OSI-horizontal-large.png" /></a></br>This work is licensed under the <a rel="license" href="https://opensource.org/licenses/MIT">MIT License</a>.
